@@ -1,0 +1,108 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+button:hover, a.btn:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.05) rotate(1deg);
+  transition: all 0.4s ease;
+}
+img {
+  transition: all 0.4s ease;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+/*  services */
+
+.text-info {
+  color: #66ccff;
+}
+.text-warning {
+  color: #ffcc00;
+}
+.text-success {
+  color: #66ff66;
+}
+
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 255, 150, 0.1);
+  border-color: #00ff99; 
+}
+
+.dark-mode {
+  background-color: #000;
+  color: #fff;
+}
+
+.light-mode {
+  background-color: #fff;
+  color: #333;
+}
+
+.light-mode section,
+.light-mode .container {
+  background-color: #fff !important;
+  color: #333 !important;
+}
+
+.dark-mode,
+.light-mode {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.btn-outline-warning {
+  border-color: #ffc107;
+}
+.btn-outline-warning:hover {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.projects-section {
+  background-color: #000;
+  color: #fff;
+}
+.services-section {
+  background-color: #000;
+  color: #fff;
+}
+.contact-section {
+  background-color: #000;
+  color: #fff;
+}
+
+.light-mode .bg-black {
+  background-color: #fff !important;
+  color: #333 !important;
+}
+.light-mode .bg-dark {
+  background-color: #fff !important;
+  color: #333 !important;
+}
+
+
+
+
+
+.link-card {
+  transition: all 0.3s ease;
+}
+.link-card:hover {
+  background: linear-gradient(90deg, #6e00ff, #00ffd5);
+  color: black;
+}
+.link-card:hover svg {
+  transform: translate(3px, -3px);
+  transition: transform 0.3s ease;
+}
