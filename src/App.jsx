@@ -45,7 +45,7 @@ function App() {
         </div>
 
         <p className="mt-3 text-center fs-5">
-          Hello World! My name is <span className="text-success fw-bold">Hira Mithani</span>
+          Hello World! My name is <span className="text-success fw-bold hira-animation">Hira Mithani</span>
         </p>
         <h1 className="fw-bold text-center display-4 text-uppercase animate__animated animate__fadeIn">
           Front-End Web Developer
@@ -79,9 +79,11 @@ function App() {
         </div>
       </div>
 
+      {/* Projects */}
+
       <section className="projects-section bg-black text-white py-5">
         <div className="container">
-          <h2 className="text-center fw-bold mb-5 text-success">My Work</h2>
+          <h2 className="text-center fw-bold mb-3 text-success">My Work</h2>
           <h3 className="text-center mb-4 fs-1">My Latest Projects</h3>
           <div className="row g-4">
             {[
@@ -108,10 +110,12 @@ function App() {
         </div>
       </section>
 
+      {/* Services Section */}
+
       <section className="services-section bg-dark text-white py-5">
         <div className="container">
-          <p className="text-center fw-bold text-success">My Services</p>
-          <h2 className="text-center fw-bold mb-4">How Can I Help Your Business</h2>
+          <p className="text-center fw-bold fs-3 text-success mb-2">My Services</p>
+          <h2 className="text-center fw-bold mb-4 fs-2">How Can I Help Your Business</h2>
           <div className="row g-4 justify-content-center">
             {[
               { icon: "fas fa-mobile-alt fa-2x mb-3 text-info", title: "Responsive Web Design", desc: "I create websites that look great on all devices." },
@@ -130,39 +134,29 @@ function App() {
         </div>
       </section>
 
-      <section className="text-white py-5">
+      {/* Contact Section */}
+
+      <section className="contact-section">
         <Container>
-          <p className="text-center text-success mb-2">Contact</p>
-          <h2 className="text-center fw-bold mb-3">Did you like my work?</h2>
+          <p className="text-center fw-bold text-success mb-2 fs-3">Contact</p>
+          <h2 className="text-center fw-bold mb-3 fs-2">Did you like my work?</h2>
           <p className="text-center text-light mb-4">Get in touch or follow my social networks!</p>
 
           <Row className="justify-content-center">
             <Col md={6}>
-              <a href="https://www.linkedin.com/in/hira12/" target="_blank" rel="noopener noreferrer" className="text-decoration-none">
-                <Card className="bg-dark text-white mb-3 p-3 d-flex flex-row justify-content-between align-items-center link-card">
-                  <span><FaLinkedin className="me-2" /> LinkedIn</span>
-                  <FaArrowUpRightFromSquare />
-                </Card>
-              </a>
-              <a href="https://www.instagram.com/hira.mithani/" target="_blank" rel="noopener noreferrer" className="text-decoration-none">
-                <Card className="bg-dark text-white mb-3 p-3 d-flex flex-row justify-content-between align-items-center link-card">
-                  <span><FaInstagram className="me-2" /> Instagram</span>
-                  <FaArrowUpRightFromSquare />
-                </Card>
-              </a>
-              <a href="https://github.com/hira-mithani" target="_blank" rel="noopener noreferrer" className="text-decoration-none">
-                <Card className="bg-dark text-white mb-3 p-3 d-flex flex-row justify-content-between align-items-center link-card">
-                  <span><i className="fab fa-github me-2"></i> GitHub</span>
-                  <FaArrowUpRightFromSquare />
-                </Card>
-              </a>
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hira.mithani1.xwave@gmail.com" className="text-decoration-none" target="_blank" rel="noopener noreferrer">
-                <Card className="bg-dark text-white mb-3 p-3 d-flex flex-row justify-content-between align-items-center link-card">
-                  <span><i className="fas fa-envelope me-2"></i> Email</span>
-                  <FaArrowUpRightFromSquare />
-                </Card>
-              </a>
-
+              {[
+                { icon: <FaLinkedin className="me-2" />, label: "LinkedIn", link: "https://www.linkedin.com/in/hira12/" },
+                { icon: <FaInstagram className="me-2" />, label: "Instagram", link: "https://www.instagram.com/hira.mithani/" },
+                { icon: <i className="fab fa-github me-2"></i>, label: "GitHub", link: "https://github.com/hira-mithani" },
+                { icon: <i className="fas fa-envelope me-2"></i>, label: "Email", link: "https://mail.google.com/mail/?view=cm&fs=1&to=hira.mithani1.xwave@gmail.com" }
+              ].map((social, index) => (
+                <a href={social.link} key={index} target="_blank" rel="noopener noreferrer" className="text-decoration-none">
+                  <Card className="contact-card mb-3 d-flex flex-row justify-content-between align-items-center link-card">
+                    <span>{social.icon}{social.label}</span>
+                    <FaArrowUpRightFromSquare />
+                  </Card>
+                </a>
+              ))}
             </Col>
           </Row>
         </Container>
