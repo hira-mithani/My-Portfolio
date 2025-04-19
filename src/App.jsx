@@ -7,8 +7,8 @@ import third from './assets/project 3.png';
 import fourth from './assets/project 4.png';
 import fifth from './assets/project 5.png';
 import sixth from './assets/project 6.png';
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import { FaLinkedin, FaInstagram, FaArrowUpRightFromSquare } from 'react-icons/fa6';
+import { Container } from "react-bootstrap";
+import { FaLinkedin, FaInstagram, FaGithub, FaEnvelope, FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 function App() {
   const [isWhiteTheme, setIsWhiteTheme] = useState(false);
@@ -136,31 +136,42 @@ function App() {
 
       {/* Contact Section */}
 
-      <section className="contact-section">
-        <Container>
-          <p className="text-center fw-bold text-success mb-2 fs-3">Contact</p>
-          <h2 className="text-center fw-bold mb-3 fs-2">Did you like my work?</h2>
-          <p className="text-center text-light mb-4">Get in touch or follow my social networks!</p>
+      <section id="contact" className="contact-section">
+      <div className="contact-background">
+        <Container className="text-center text-white">
+          <p className="text-success fw-bold fs-3">Contact</p>
+          <h2 className="fw-bold fs-2">Did you like my work ?</h2>
+          <p>Get in touch & follow my social networks!</p>
 
-          <Row className="justify-content-center">
-            <Col md={6}>
-              {[
-                { icon: <FaLinkedin className="me-2" />, label: "LinkedIn", link: "https://www.linkedin.com/in/hira12/" },
-                { icon: <FaInstagram className="me-2" />, label: "Instagram", link: "https://www.instagram.com/hira.mithani/" },
-                { icon: <i className="fab fa-github me-2"></i>, label: "GitHub", link: "https://github.com/hira-mithani" },
-                { icon: <i className="fas fa-envelope me-2"></i>, label: "Email", link: "https://mail.google.com/mail/?view=cm&fs=1&to=hira.mithani1.xwave@gmail.com" }
-              ].map((social, index) => (
-                <a href={social.link} key={index} target="_blank" rel="noopener noreferrer" className="text-decoration-none">
-                  <Card className="contact-card mb-3 d-flex flex-row justify-content-between align-items-center link-card">
-                    <span>{social.icon}{social.label}</span>
-                    <FaArrowUpRightFromSquare />
-                  </Card>
-                </a>
-              ))}
-            </Col>
-          </Row>
+          <div className="social-links">
+            <a href="https://linkedin.com" target="_blank" className="link-card">
+              <FaLinkedin className="icon" />
+              <span>Linkedin</span>
+              <FaArrowUpRightFromSquare className="arrow" />
+            </a>
+
+            <a href="https://instagram.com" target="_blank" className="link-card">
+              <FaInstagram className="icon" />
+              <span>Instagram</span>
+              <FaArrowUpRightFromSquare className="arrow" />
+            </a>
+
+            <a href="https://github.com" target="_blank" className="link-card">
+              <FaGithub className="icon" />
+              <span>GitHub</span>
+              <FaArrowUpRightFromSquare className="arrow" />
+            </a>
+
+            <a href="mailto:hira.mithani1.xwave@gmail.com" className="link-card">
+              <FaEnvelope className="icon" />
+              <span>E-mail</span>
+              <FaArrowUpRightFromSquare className="arrow" />
+            </a>
+          </div>
         </Container>
-      </section>
+      </div>
+    </section>
+ 
 
     </div>
   );
