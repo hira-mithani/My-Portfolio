@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import profileImage from './assets/Image (2).png';
 import projectImage from './assets/project1.png';
@@ -8,37 +8,57 @@ import fourth from './assets/project 4.png';
 import fifth from './assets/project 5.png';
 import sixth from './assets/project 6.png';
 import { Container } from "react-bootstrap";
+import FocusImge from './assets/Focus.png';
 import { FaLinkedin, FaInstagram, FaGithub, FaEnvelope, FaArrowUpRightFromSquare } from "react-icons/fa6";
 
+
 function App() {
-  const [isWhiteTheme, setIsWhiteTheme] = useState(false);
-
-  const toggleTheme = () => {
-    setIsWhiteTheme(!isWhiteTheme);
-  };
-
   return (
-    <div className={isWhiteTheme ? "light-mode" : "dark-mode"}>
+    <div className="dark-mode">
       <div className="hero-section min-vh-100 d-flex flex-column align-items-center justify-content-center position-relative px-3 overflow-hidden">
+        {/* Left Side Image (normal, facing right) */}
+        <img
+          src={FocusImge}
+          alt="Left Side Decoration"
+          className="position-absolute top-50 start-0 translate-middle-y d-none d-md-block"
+          style={{ width: '200px', transform: 'rotate(0deg)' }}
+        />
+
+        {/* Right Side Image (mirrored, facing left) */}
+        <img
+          src={FocusImge}
+          alt="Right Side Decoration"
+          className="position-absolute top-50 end-0 translate-middle-y d-none d-md-block"
+          style={{ width: '200px', transform: 'scaleX(-1)' }}
+        />
         <div className="position-absolute top-0 end-0 p-3 z-3">
           <div className="d-flex flex-wrap gap-2 justify-content-end">
-            <button className="btn btn-success rounded-pill shadow-sm px-4 fw-semibold">Hire Me</button>
+            <button className="btn bg-dark text-white rounded-pill shadow-sm px-4  border-0">
+              Hire Me
+            </button>
+
             <a
               href="https://drive.google.com/file/d/1G6DSiyu2Pd8wY9BahXrAV2u4Ggzrrc6qhajxEvvIN7s/preview"
-              className="btn btn-outline-light rounded-pill shadow-sm px-4 fw-semibold"
+              className="btn bg-dark text-white rounded-pill shadow-sm px-4 border-0 d-flex align-items-center gap-2"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className="fas fa-download me-2"></i> Resume
+              <i className="fas fa-download"></i> Resume
             </a>
-            <button className="btn btn-outline-warning rounded-circle shadow-sm" onClick={toggleTheme}>
-              <i className={isWhiteTheme ? "fas fa-moon" : "fas fa-sun"}></i>
+
+            <button className="btn bg-dark text-white rounded-circle shadow-sm border-0">
+              <i className="fas fa-sun"></i>
             </button>
           </div>
         </div>
 
         <div className="text-center mt-5 pt-5 animate__animated animate__fadeInDown">
-          <img src={profileImage} alt="Hira Mithani" className="rounded-circle border border-success border-4 shadow" style={{ width: '140px', height: '140px', objectFit: 'cover' }} />
+          <img
+            src={profileImage}
+            alt="Hira Mithani"
+            className="rounded-circle border border-success border-4 shadow"
+            style={{ width: '140px', height: '140px', objectFit: 'cover' }}
+          />
           <div className="mt-2 text-success fs-4">
             <i className="fas fa-code fa-lg"></i>
           </div>
@@ -51,9 +71,9 @@ function App() {
           Front-End Web Developer
         </h1>
         <p className="text-secondary text-center w-100 w-md-75 px-2 fs-6 fw-light mt-2">
-          As a web developer, I turn ideas into dynamic, user-friendly applications. With a deep passion for technology, I build robust systems that address complex problems and deliver creative, efficient solutions.
+          As a web developer, I turn ideas into dynamic, user-friendly applications. With a deep passion for technology,
+          I build robust systems that address complex problems and deliver creative, efficient solutions.
         </p>
-
         <div className="d-flex flex-wrap justify-content-center gap-3 mt-4 px-2">
           {[
             { icon: "fab fa-github", label: "GitHub", link: "https://github.com/hira-mithani" },
@@ -79,8 +99,8 @@ function App() {
         </div>
       </div>
 
-      {/* Projects */}
 
+      {/* Projects Section */}
       <section className="projects-section bg-black text-white py-5">
         <div className="container">
           <h2 className="text-center fw-bold mb-3 text-success">My Work</h2>
@@ -110,69 +130,43 @@ function App() {
         </div>
       </section>
 
-      {/* Services Section */}
-
-      <section className="services-section bg-dark text-white py-5">
-        <div className="container">
-          <p className="text-center fw-bold fs-3 text-success mb-2">My Services</p>
-          <h2 className="text-center fw-bold mb-4 fs-2">How Can I Help Your Business</h2>
-          <div className="row g-4 justify-content-center">
-            {[
-              { icon: "fas fa-mobile-alt fa-2x mb-3 text-info", title: "Responsive Web Design", desc: "I create websites that look great on all devices." },
-              { icon: "fas fa-code fa-2x mb-3 text-warning", title: "HTML, CSS & JavaScript", desc: "I use clean and modern code to build interactive websites." },
-              { icon: "fab fa-github fa-2x mb-3 text-light", title: "GitHub", desc: "I use Git and GitHub for version control and collaboration." },
-            ].map((service, index) => (
-              <div className="col-md-4" key={index}>
-                <div className="service-card border rounded p-4 text-center h-100">
-                  <i className={service.icon}></i>
-                  <h5 className="fw-semibold">{service.title}</h5>
-                  <p className="text-muted">{service.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
-
       <section id="contact" className="contact-section">
-      <div className="contact-background">
-        <Container className="text-center text-white">
-          <p className="text-success fw-bold fs-3">Contact</p>
-          <h2 className="fw-bold fs-2">Did you like my work ?</h2>
-          <p>Get in touch & follow my social networks!</p>
+        <div className="contact-background">
+          <Container className="text-center text-white">
+            <p className="text-success fw-bold fs-3">Contact</p>
+            <h2 className="fw-bold fs-2">Did you like my work?</h2>
+            <p>Get in touch & follow my social networks!</p>
 
-          <div className="social-links">
-            <a href="https://linkedin.com" target="_blank" className="link-card">
-              <FaLinkedin className="icon" />
-              <span>Linkedin</span>
-              <FaArrowUpRightFromSquare className="arrow" />
-            </a>
+            <div className="social-links">
+              <a href="https://linkedin.com" target="_blank" className="link-card">
+                <FaLinkedin className="icon" />
+                <span>Linkedin</span>
+                <FaArrowUpRightFromSquare className="arrow" />
+              </a>
 
-            <a href="https://instagram.com" target="_blank" className="link-card">
-              <FaInstagram className="icon" />
-              <span>Instagram</span>
-              <FaArrowUpRightFromSquare className="arrow" />
-            </a>
+              <a href="https://instagram.com" target="_blank" className="link-card">
+                <FaInstagram className="icon" />
+                <span>Instagram</span>
+                <FaArrowUpRightFromSquare className="arrow" />
+              </a>
 
-            <a href="https://github.com" target="_blank" className="link-card">
-              <FaGithub className="icon" />
-              <span>GitHub</span>
-              <FaArrowUpRightFromSquare className="arrow" />
-            </a>
+              <a href="https://github.com" target="_blank" className="link-card">
+                <FaGithub className="icon" />
+                <span>GitHub</span>
+                <FaArrowUpRightFromSquare className="arrow" />
+              </a>
 
-            <a href="mailto:hira.mithani1.xwave@gmail.com" className="link-card">
+              <a href="mailto:hira.mithani1.xwave@gmail.com" className="link-card">
               <FaEnvelope className="icon" />
               <span>E-mail</span>
               <FaArrowUpRightFromSquare className="arrow" />
             </a>
-          </div>
-        </Container>
-      </div>
-    </section>
- 
 
+            </div>
+          </Container>
+        </div>
+      </section>
     </div>
   );
 }
